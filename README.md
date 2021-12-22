@@ -28,6 +28,7 @@ Leveraging the native keychain APIs in swift would be more efficient and provide
 
 ` let result = runCommand(cmd: "/usr/bin/security", args: "lock-keychain" keychain)`
 
-But this suits the needs at hand. Changing the runCommand structure though, could be used to fix future bugs introduced by breaking changes to the security binary or even swap out to other commands to port to other tools (e.g. curl for websites/JWTs/whatevers). 
+But this suits the needs at hand. Changing the runCommand structure though, could be used to fix future bugs introduced by breaking changes to the security binary or even swap out to other commands to port to other tools (e.g. curl for websites/JWTs/whatevers). Also should probably compile it and make operators for -keychain -length and -patterns so it can run outside of xcode. And add a sanity check to see if the keychain is unlocked before just erroring out. Or not...
 
-Used the Ruby script at https://github.com/peterhil/keychainrecovery for the structure and a few ideas to speed up recovery (like allowing for entering parts of the password that are known) but this is in swift. 
+## Attribution
+Used the Ruby script at https://github.com/peterhil/keychainrecovery for the structure and a few ideas to speed up recovery (like allowing for entering parts of the password that are known) but wanted to run natively in swift. 
