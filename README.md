@@ -4,18 +4,20 @@ Recover lost keychain passwords using a simple swift script (so can run natively
 ## Use
 This script is really written to just be run in xcode. 
 
-`Enter name or path of the keychain to crack:
->>> 
-test.keychain`
+`Enter name or path of the keychain to crack:`
+`>>> `
+`test.keychain`
 
-Enter the parts of the password you can remember.
-Replace the characters you can't remember with spaces.
-Just press enter if can't remember anything:
->>> tes 123
+`Enter the parts of the password you can remember.`
+`Replace the characters you can't remember with spaces.`
+`Just press enter if can't remember anything:`
+`>>> tes 123`
 
 `How long is the password?`
 `>>>` 
-9
+`7`
+
+Then it just loops through and tries each combination of characters, working around those that are missing. The above example is only missing one character but leave that field blank and it would start with aaaaaaa and loop through until the process is stopped.
 
 ## Notes
 The core of the script is really this line:
