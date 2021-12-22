@@ -28,7 +28,7 @@ public class Bruteforce {
         // Can't remember any characters, use a blank template of certain length
         if template == "" {
           let defKeylength = 8
-            print("How long the password was? [#{defKeylength}]\n" + Bruteforce.prompt)
+            print("How long was the password? [#{defKeylength}]\n" + Bruteforce.prompt)
             keylength = Int(readLine() ?? "0")!
             if keylength == 0 {
                 keylength = defKeylength
