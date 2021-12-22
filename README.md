@@ -1,7 +1,24 @@
 # keychainbrute
-## Recover lost keychain passwords using a simple swift script (so can run natively on Mac or compile and be used in other tools).
+Recover lost keychain passwords using a simple swift script (so can run natively on Mac or compile and be used in other tools).
 
-Note that the core of the script is really this line:
+## Use
+This script is really written to just be run in xcode. 
+
+`Enter name or path of the keychain to crack:
+>>> 
+test.keychain`
+
+Enter the parts of the password you can remember.
+Replace the characters you can't remember with spaces.
+Just press enter if can't remember anything:
+>>> tes 123
+
+`How long is the password?`
+`>>>` 
+9
+
+## Notes
+The core of the script is really this line:
 
 ` let result = runCommand(cmd: "/usr/bin/security", args: "unlock-keychain", "-p", key, keychain)`
 
