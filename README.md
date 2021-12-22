@@ -1,4 +1,4 @@
-# keychainbrute
+# brutalkeychain
 Recover lost keychain passwords using a simple swift script (so can run natively on Mac or compile and be used in other tools).
 
 ## Use
