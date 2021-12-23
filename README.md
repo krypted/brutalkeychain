@@ -6,7 +6,7 @@ Download the compiled binary or the Xcode Project (e.g. to tweak the logic). The
 
 `./BruteforceKeychain -l 8 -n login.keychain-db`
 
-The above would test a locked login keychain for all possible 8 character combinations.
+The above would test a locked login keychain for all possible 8 character combinations. Given you don't need to brute force an unlocked keychain, the script will fail if the keychain is not locked. 
 
 ## V1
 The first version of this script is really written to just be run in xcode. 
