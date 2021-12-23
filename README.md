@@ -1,8 +1,15 @@
 # brutalkeychain
 Recover lost keychain passwords using a simple swift script (so can run natively on Mac or compile and be used in other tools).
 
-## Use
-This script is really written to just be run in xcode. 
+## V2
+Download the compiled binary or the Xcode Project (e.g. to tweak the logic). The binary has the -l (integer of length), -n (name of keychain), and -p (patterns like "tes 123") options as follows:
+
+`./BruteforceKeychain -l 8 -n login.keychain-db`
+
+The above would test a locked login keychain for all possible 8 character combinations.
+
+## V1
+The first version of this script is really written to just be run in xcode. 
 
 `Enter name or path of the keychain to crack:`
 `>>> `
@@ -31,4 +38,4 @@ Leveraging the native keychain APIs in swift would be more efficient and provide
 But this suits the needs at hand. Changing the runCommand structure though, could be used to fix future bugs introduced by breaking changes to the security binary or even swap out to other commands to port to other tools (e.g. curl for websites/JWTs/whatevers). Also should probably compile it and make operators for -keychain -length and -patterns so it can run outside of xcode. And add a sanity check to see if the keychain is unlocked before just erroring out. Or not...
 
 ## Attribution
-Used the Ruby script at https://github.com/peterhil/keychainrecovery for the structure and a few ideas to speed up recovery (like allowing for entering parts of the password that are known) but wanted to run natively in swift. 
+V1 used the Ruby script at https://github.com/peterhil/keychainrecovery for the structure and a few ideas to speed up recovery (like allowing for entering parts of the password that are known) but wanted to run natively in swift. 
