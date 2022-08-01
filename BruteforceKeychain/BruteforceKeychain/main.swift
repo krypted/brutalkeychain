@@ -143,10 +143,7 @@ public class Bruteforce {
         let errpipe = Pipe()
         task.standardError = errpipe
 
-
         try! task.run()
-
-
 
         let outdata = outpipe.fileHandleForReading.readDataToEndOfFile()
         if var string = String(data: outdata, encoding: .utf8) {
