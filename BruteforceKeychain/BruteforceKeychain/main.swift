@@ -108,14 +108,14 @@ public class Bruteforce {
     }
     
     func succ(value: String) -> String {
-        let alphabet = Array<Character>(" abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+        let alphabet = Array<Character>(" abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!");
         var values: Array<Character> = Array<Character>(" " + value)
         var addone: Bool = true;
 
         for (index, _) in values.enumerated().reversed() {
             if addone
             {
-                if (values[index] != "Z")
+                if (values[index] != "!")
                 {
                     values[index] = alphabet[alphabet.firstIndex(of: values[index])! + 1]
                     addone = false;
@@ -149,23 +149,25 @@ public class Bruteforce {
         if var string = String(data: outdata, encoding: .utf8) {
             string = string.trimmingCharacters(in: .newlines)
             output = string.components(separatedBy: "\n")
+            try! outpipe.fileHandleForReading.close()
         }
 
         let errdata = errpipe.fileHandleForReading.readDataToEndOfFile()
         if var string = String(data: errdata, encoding: .utf8) {
             string = string.trimmingCharacters(in: .newlines)
             error = string.components(separatedBy: "\n")
+            try! errpipe.fileHandleForReading.close()
         }
-
         task.waitUntilExit()
         let status = task.terminationStatus
 
         return (output, error, status)
+        
     }
 }
 
 let opener = Bruteforce()
 let keychain = opener.getKeychain()
 let template = opener.getTemplate()
-opener.bruteforce(template: template, keychain: keychain)
 
+opener.bruteforce(template: template, keychain: keychain)
